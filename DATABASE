@@ -1,0 +1,51 @@
+create database fams;
+use fams;
+
+CREATE TABLE faculty(
+faculty_id int(48) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+last_name VARCHAR(48),
+first_name VARCHAR(48),
+email_add VARCHAR(48)
+);
+
+CREATE TABLE schedule(
+schedule_id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+faculty_id int,
+t_start TIME,
+t_end TIME,
+subject VARCHAR(24),
+acad_yr_id int,
+room VARCHAR(24)
+);
+
+CREATE TABLE schedule_days(
+schedule_id int,
+day VARCHAR(4)
+);
+
+CREATE TABLE attendance(
+attendance_num int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+recorded DATETIME,
+schedule_id int,
+checker_name VARCHAR(128),
+remarks VARCHAR(24)
+);
+
+CREATE TABLE users(
+user_num int(48) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+username TINYTEXT NOT NULL,
+password LONGTEXT NOT NULL,
+name VARCHAR(128),
+position VARCHAR(48)
+);
+
+CREATE TABLE acad_yr(
+acad_yr_id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+acad_yr VARCHAR(48),
+acad_sem VARCHAR(48)
+);
+
+CREATE TABLE subjects(
+subj_num int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+subject VARCHAR(24)
+);
